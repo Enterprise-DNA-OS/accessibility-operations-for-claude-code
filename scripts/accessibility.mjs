@@ -19,7 +19,7 @@ export const reports={
  'release-review':'select code,name,open_findings,accepted_findings,resolved_findings,last_manual_audit,review_on from v_site_review order by code',
  'correction-history':"select f.code,x.actor as fixed_by,x.note,x.evidence,x.created_at from fixes x join findings f on f.id=x.finding_id order by x.sequence desc",
  compliance:'select * from v_compliance order by rule,code',
- activity:'select sequence,entity,actor,action,note,created_at from activity order by sequence desc'
+ activity:'select sequence,entity,actor,action,note,before_data,after_data,created_at from activity order by sequence desc'
 };
 const mutations=['add','assign','revise','log','record-fix','retest','accept-risk','revoke-exception','page-changed','complete-audit','review-site','import'];
 export const commands=['help',...Object.keys(reports),'weekly-review','show',...mutations,'export','draft-remediation','draft-statement'];
