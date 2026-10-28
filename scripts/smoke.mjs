@@ -20,7 +20,7 @@ const actor={actor:'Test operator'};const today=new Date().toISOString().slice(0
 const show=ref=>call('show',{ref}).then(x=>x[0]);
 try{
  if(db.mode==='postgres')eq((await db.query("select count(*)::int n from information_schema.tables where table_schema='public'"))[0].n,0);
- eq((await migrate(db)).ran.length,1);eq((await migrate(db)).ran.length,0);
+ eq((await migrate(db)).ran.length,2);eq((await migrate(db)).ran.length,0);
  await seed(db);await seed(db);eq((await call('sites')).length,2);eq((await call('findings')).length,6);
  for(const c of Object.keys(reports))ok(Array.isArray(await call(c)));
  eq((await call('help')).length,commands.length);ok((await call('weekly-review')).attention.length>0);
@@ -50,6 +50,9 @@ try{
  await call('retest',{...test,result:'pass'});
  await call('revise',{ref:'A11Y-02',title:'Image descriptions need contextual text',...actor});
  eq((await show('A11Y-02')).state,'awaiting-retest');eq((await show('A11Y-02')).revision,2);
+ const revisionLog=(await call('activity')).find(x=>x.action==='revise');
+ eq(revisionLog.before_data.title,'Product images have no text alternative');
+ eq(revisionLog.after_data.title,'Image descriptions need contextual text');
  const risk={ref:'A11Y-03',reason:'Alternative assisted channel while supplier fixes component',evidence:'Risk review 7','expires-on':'2099-01-01',...actor};
  await fail('accept-risk',{...risk,'expires-on':'2000-01-01'},/expiry/);
  await call('accept-risk',risk);eq((await show('A11Y-03')).state,'accepted');

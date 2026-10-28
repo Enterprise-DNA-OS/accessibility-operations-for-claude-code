@@ -4,13 +4,15 @@ Checked 28 October 2026. Family: digital-accessibility-operations. No target in 
 
 ## Annual bill and scoring
 
-GBP 13,000 per year appears on the vendor's UK public-sector list for a 5,000-page Inclusivity package. This is a published list price for that procurement context, not a verified NZ or AU small-business invoice. Do not turn it into an Australian quote or a savings claim. [Vendor-authored list filed on the UK Digital Marketplace](https://assets.applytosupply.digitalmarketplace.service.gov.uk/g-cloud-14/documents/702601/973395868511278-pricing-document-2024-05-07-1303.pdf).
+AUD 37,500 annualised contract value: the Tasmanian Department of Justice published an AUD 75,000 Siteimprove Web Governance Tool contract covering February 2023 to February 2025, excluding GST. Dividing the two-year value by two gives the annualised selection figure. This is a historical public-sector contract, not a current small-business invoice or proof of cash paid. [Primary disclosure, page 76](https://www.justice.tas.gov.au/__data/assets/pdf_file/0010/728569/Department-of-Justice-Annual-Report-2022-23-web-compressed.pdf).
+
+Separately, the UK public-sector list records GBP 13,000 as a recurring licence for 5,000 pages. Its billing period is not stated in that price sheet, so it is not described here as an annual rate. [Vendor-authored list filed on the UK Digital Marketplace](https://assets.applytosupply.digitalmarketplace.service.gov.uk/g-cloud-14/documents/702601/973395868511278-pricing-document-2024-05-07-1303.pdf).
 
 The vendor's pricing route redirects to its homepage. No numeric price is therefore used on our comparison page. The registry prices list is empty. [Pricing route checked this run](https://www.siteimprove.com/pricing/).
 
 | Criterion | Score | Reason |
 | --- | --- | --- |
-| Annual bill | 3 | Five-figure vendor list, with no verified small-business invoice |
+| Annual bill | 3 | Historical Australian contract annualises above AUD 20,000; no verified small-business invoice |
 | Data-shaped | 4 | Operations records are relational; scanning stays a separate service |
 | Our buyers pay for it | 2 | Plausible digital agency use; no confirmed EDNA buyer in searched records |
 | Search demand | 3 | Alternative and pricing pages exist; no measured keyword volume |
