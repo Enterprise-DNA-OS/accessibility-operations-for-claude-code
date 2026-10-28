@@ -1,24 +1,7 @@
-# Why there is no front end
+# Read the view. Act through the agent.
 
-Siteimprove is a database with a subscription. The tables underneath it are ordinary: a few entities, a few relationships, a handful of workflows you repeat every week. What you pay for is the layer on top that lets people who do not write SQL get at those tables. Screens, filters, dashboards, forms.
+The working record is a database. Ask your coding agent to assign a finding, record a fix or prepare the weekly review. Branded HTML snapshots show the current evidence and work queue without an application to maintain.
 
-That layer used to be the whole product, because talking to a database was hard. It is not hard any more. Open this folder in Claude Code, describe what you want, and it writes the query, runs it, and explains the answer. Ask a question the dashboard never had a chart for and you still get an answer.
+A screen adds mobile entry, simultaneous editing, visual selection and notifications. This version does not provide those, a website crawler, an accessibility overlay or offline mobile capture. Site testing and assistive-technology assessment remain separate work. Enterprise DNA can scope a custom web front end and connections around your process.
 
-## What you gain
-
-- **Better answers.** A dashboard shows what the vendor decided to chart. Here you ask your own question, in your own words, and get it answered against your own data.
-- **No seats.** Everyone who needs to look can look. The bill does not grow with headcount.
-- **Your data in your Postgres.** Plain tables. Back them up, query them from anything, leave any time. There is no export step because there is nothing to leave.
-- **A process that matches you.** When your way of working changes, you add a command. You do not wait for a feature request to clear.
-
-## What you give up
-
-- **A visual board.** Stages are a table you ask about, not cards you drag.
-- **A phone app.** It runs where Claude Code runs.
-- **A vendor help desk.** This is open source. Enterprise DNA supports the installed version for businesses that want someone to call.
-
-## Who this fits
-
-Small teams who already use Claude Code, or who would rather learn to ask than learn another interface. If your team needs a screen to look at all day, keep Siteimprove. If you need the answers more than the screens, this is cheaper, faster and yours.
-
-Installed and run for you: https://enterprisedna.co/omni/instead-of/siteimprove
+Generated HTML is a snapshot, not a live feed. Regenerate it after changes. Protect reports that contain staff names or evidence links. Do not publish them automatically.

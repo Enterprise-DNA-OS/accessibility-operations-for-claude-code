@@ -1,0 +1,3 @@
+URL,Page title,Issue,Success criteria,Conformance,Severity,Responsibility,CMS Link
+https://import.example.test/checkout,Checkout,Image missing a text alternative,1.1.1,Level A,high,Content writing,https://cms.example.test/edit/7
+https://import.example.test/contact,Contact,Input missing a label,3.3.2,Level A,medium,Content writing,https://cms.example.test/edit/8

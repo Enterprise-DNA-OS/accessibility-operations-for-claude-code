@@ -1,0 +1,42 @@
+[
+  {
+    "ask": "Which critical journeys still have an open barrier and who owns the fix?",
+    "command": "attention"
+  },
+  {
+    "ask": "Which passing retests belong to an older page or finding revision?",
+    "command": "retest-queue"
+  },
+  {
+    "ask": "Who recorded each fix, and what evidence did they attach?",
+    "command": "correction-history"
+  },
+  {
+    "ask": "Which owners have the most overdue accessibility work?",
+    "command": "owner-load"
+  },
+  {
+    "ask": "Which accepted risks have expired or been invalidated by a change?",
+    "command": "exceptions"
+  },
+  {
+    "ask": "Which sites have no recorded completed manual audit?",
+    "command": "release-review"
+  },
+  {
+    "ask": "Which criteria recur across several pages and sites?",
+    "command": "criterion-load"
+  },
+  {
+    "ask": "Which findings have no owner or agreed completion date?",
+    "command": "compliance"
+  },
+  {
+    "ask": "Which sites need a review of why personal information is retained?",
+    "command": "compliance"
+  },
+  {
+    "ask": "What changed in the record, who changed it, and what did it say before?",
+    "command": "activity"
+  }
+]

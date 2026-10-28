@@ -1,11 +1,49 @@
 [
   {
-    "name": "example",
-    "title": "TODO(author): the first document this industry must produce",
-    "for_each": "select gen_random_uuid() as id, 'Example' as name",
-    "file": "name",
+    "name": "remediation-plan",
+    "title": "Accessibility remediation plan",
+    "for_each": "select id,code,name from sites order by code",
+    "file": "code",
     "sections": [
-      { "title": "Details", "sql": "select 'replace me' as item, $1::text as record_id" }
+      {
+        "title": "Site and scope",
+        "sql": "select code,name,standard,jurisdiction,review_on from sites where id=$1",
+        "layout": "record"
+      },
+      {
+        "title": "Actions to assign",
+        "sql": "select code,title,criterion,owner,due_on,state from v_findings where site_id=$1 and state<>'resolved' order by code",
+        "note": "Local priorities and dates. Acceptance of a risk is not a finding that the site conforms."
+      }
+    ]
+  },
+  {
+    "name": "review-evidence",
+    "title": "Accessibility review evidence",
+    "for_each": "select id,code,name from sites order by code",
+    "file": "code",
+    "sections": [
+      {
+        "title": "Audit scope",
+        "sql": "select code,name,scope,method,assessor,completed_on,evidence from audits where site_id=$1 order by code"
+      },
+      {
+        "title": "Fix and retest evidence",
+        "sql": "select code,title,fixed_by,fix_evidence,tested_by,test_method,test_evidence,state from v_findings where site_id=$1 order by code"
+      }
+    ]
+  },
+  {
+    "name": "exception-register",
+    "title": "Accessibility exception register",
+    "for_each": "select id,code,name from sites order by code",
+    "file": "code",
+    "sections": [
+      {
+        "title": "Risk decisions",
+        "sql": "select f.code,f.title,e.actor,e.reason,e.evidence,e.expires_on,e.revoked_at,f.state from exceptions e join v_findings f on f.id=e.finding_id where f.site_id=$1 order by e.sequence",
+        "note": "Internal decisions only. These are not exemptions from accessibility law."
+      }
     ]
   }
 ]

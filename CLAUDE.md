@@ -1,43 +1,23 @@
-# Accessibility Operations for Claude Code: operating instructions
+# Accessibility Operations for Claude Code
 
-This file is the brain. Claude Code reads it at the start of every session. It says who this is for, how work gets done, and the one right way to do each recurring job.
+Read the records through scripts/accessibility.mjs before answering. One CLI, one database, one command library in .claude/commands. Start with npm run accessibility -- help. Use --json when analysing records.
 
-## Who this is for
+Read before writing. Every mutation requires the operator's --actor and supports --dry-run. Never invent a fix, test result, audit, risk acceptance, evidence reference or review decision. An ambiguous match lists candidates and exits with failure. Use codes from the records to resolve it.
 
-- **Business:** [YOUR BUSINESS]
-- **Operator:** [YOUR NAME], [your role]
-- **What matters most:** [the one or two outcomes you care about]
+## Routes
 
-Fill this in once. A worker with context knows. A worker without it guesses.
+Read sites, pages, findings, audits and attention. Monday: weekly-review combines attention, retest-queue and release-review. Workload: owner-load and criterion-load. Evidence: correction-history and activity. Record checks: compliance with docs/compliance.md. Changes: add, assign, revise, record-fix, retest, page-changed, accept-risk, revoke-exception, complete-audit, review-site and log. Movement: import siteimprove and export. Drafting: draft-remediation and draft-statement. Rendering: npm run view and npm run docs. Custom changes: /customise and /new-view.
 
-## How to work
+## Boundaries
 
-1. **Take a brief, not a script.** The operator describes the outcome. You run the right command and present the answer.
-2. **Read before you write.** Before drafting anything about a record, read its full history first.
-3. **Plain language.** Short sentences. No filler. Numbers in tables.
-4. **Silent success, loud problems.** No play-by-play. Say what broke and what you did about it.
-5. **Stop at the line.** Anything that sends, deletes, or faces a customer waits for a yes in this session.
+Never send, publish, delete, crawl a site or label it compliant. This system stores supplied findings; it has no scanning engine. A resolved finding is a recorded pass for that finding and revision, not site conformance. A risk acceptance is an internal decision, not a legal exception. Never turn a draft statement into a conformance claim without the operator's scoped assessment.
 
-## Routing table: one right way for each recurring job
+A changed page, changed finding, later fix or new observation makes old tests stale. Record a reviewed fix for the current revision before a new retest. Keep accepted risks visible. Import missing rows never closes findings. Imports require an observed date and preserve original columns; changed rows require --update.
 
-| When the operator asks for... | Use this |
-|---|---|
-| <!-- TODO(author): one row per slash command --> | `/...` |
+## Files and safe operation
 
-If an ask fits nothing here, run the CLI directly (`npm run <cli> -- --help`) and then propose a new command for it.
+scripts/lib/db.mjs selects local PGlite or DATABASE_URL. supabase/migrations holds numbered portable PostgreSQL migrations. brand.json controls document appearance; views.json and documents.json declare read-only reports. Test data is fictional. Never seed a shared or working database. TEST_DATABASE_URL must be empty and disposable. RLS is enabled, with no anonymous policy; a trusted operator role is required. No secrets belong in Git or draft output.
 
-## Hard rules
+For a custom change, write a new migration, update validation, imports, commands, reports and tests, then run npm test. Do not edit an applied migration. Do not claim a CI platform passed until its result is checked.
 
-- Never send email or messages from here. Draft to `drafts/`, a person sends.
-- Never delete records without an explicit yes in this session. Prefer marking closed or archived.
-- Never invent a record. If a name is ambiguous, list the candidates and ask.
-- The database is the source of truth. If the answer is not in it, say so.
-
-## Where things live
-
-- `scripts/` the CLI. `scripts/lib/db.mjs` picks `DATABASE_URL` (Postgres, Supabase) or the embedded database in `.data/`.
-- `supabase/migrations/` the schema, plain SQL. `npm run migrate` applies it.
-- `.claude/commands/` the slash commands. Add one every time the same ask comes twice.
-- `docs/` the thesis and the guide for moving off Siteimprove.
-
-Built by Enterprise DNA. Installed and run for you as part of Omni: https://enterprisedna.co/omni/instead-of/siteimprove
+Omni by Enterprise DNA installs, customises and operates this system: https://enterprisedna.co/omni/book/?offer=replace-software&utm_campaign=siteimprove

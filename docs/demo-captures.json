@@ -1,0 +1,24 @@
+{
+  "captured_at": "2026-10-28T22:20:47.984Z",
+  "data": "Synthetic demo seed",
+  "screens": [
+    {
+      "title": "The work that needs attention",
+      "ask": "Which accessibility fixes need attention this week?",
+      "command": "npm run accessibility -- attention",
+      "output": "code    | site    | title                                             | owner      | reason\n--------+---------+---------------------------------------------------+------------+------------------\nA11Y-01 | SHOP    | Payment step cannot be reached by keyboard        | Mara Chen  | critical_journey\nA11Y-03 | SERVICE | Required fields have no visible instructions      | Owen Patel | critical_journey\nA11Y-06 | SERVICE | Third-party document viewer blocks keyboard users | Owen Patel | critical_journey\nA11Y-06 | SERVICE | Third-party document viewer blocks keyboard users | Owen Patel | expired_exception\nA11Y-02 | SHOP    | Product images have no text alternative           |            | missing_owner\nA11Y-01 | SHOP    | Payment step cannot be reached by keyboard        | Mara Chen  | overdue_fix\nA11Y-02 | SHOP    | Product images have no text alternative           |            | overdue_fix\nA11Y-06 | SERVICE | Third-party document viewer blocks keyboard users | Owen Patel | overdue_fix\nA11Y-01 | SHOP    | Payment step cannot be reached by keyboard        | Mara Chen  | stale_retest"
+    },
+    {
+      "title": "Old evidence after a change",
+      "ask": "Which fixes still need a current passing retest?",
+      "command": "npm run accessibility -- retest-queue",
+      "output": "code    | site | title                                      | fixed_by  | latest_result | stale_test | state\n--------+------+--------------------------------------------+-----------+---------------+------------+----------------\nA11Y-01 | SHOP | Payment step cannot be reached by keyboard | Mara Chen | pass          | true       | awaiting-retest\nA11Y-05 | SHOP | Focus indicator is difficult to see        | Mara Chen |               | false      | awaiting-retest"
+    },
+    {
+      "title": "Who recorded the correction",
+      "ask": "Who recorded each fix, and where is the evidence?",
+      "command": "npm run accessibility -- correction-history",
+      "output": "code    | fixed_by  | note                                | evidence                | created_at\n--------+-----------+-------------------------------------+-------------------------+---------------------------\nA11Y-05 | Mara Chen | DEMO fix: updated keyboard handling | DEMO change record F-01 | \"2026-10-20T22:19:08.061Z\"\nA11Y-04 | Mara Chen | DEMO fix: updated keyboard handling | DEMO change record F-01 | \"2026-10-20T22:19:08.061Z\"\nA11Y-01 | Mara Chen | DEMO fix: updated keyboard handling | DEMO change record F-01 | \"2026-10-20T22:19:08.061Z\""
+    }
+  ]
+}

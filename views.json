@@ -1,13 +1,44 @@
 [
   {
-    "name": "week",
-    "title": "This week",
-    "subtitle": "Accessibility Operations for Claude Code: what needs attention, rendered by npm run view",
+    "name": "weekly-review",
+    "title": "Accessibility weekly review",
+    "subtitle": "Synthetic demo records. Evidence review, not a conformance score.",
     "sections": [
       {
-        "title": "Needs attention",
-        "note": "TODO(author): point this at the industry's attention view (overdue, stuck, quiet).",
-        "sql": "select 'replace me' as item, 'TODO(author)' as why"
+        "title": "Critical journeys",
+        "sql": "select code,site,title,owner,state,due_on from v_findings where critical and state not in ('resolved','accepted') order by code"
+      },
+      {
+        "title": "What needs attention",
+        "sql": "select * from v_attention order by reason,code"
+      },
+      {
+        "title": "Site review",
+        "sql": "select code,name,open_findings,accepted_findings,last_manual_audit,review_on from v_site_review order by code"
+      }
+    ]
+  },
+  {
+    "name": "retest-queue",
+    "title": "Retest and exception review",
+    "sections": [
+      {
+        "title": "Fixes needing another look",
+        "sql": "select code,title,fixed_by,latest_result,stale_test,state from v_findings where fix_id is not null and state<>'resolved' order by code"
+      },
+      {
+        "title": "Accepted and expired risks",
+        "sql": "select code,title,exception_reason,expires_on,state from v_findings where exception_id is not null order by code"
+      }
+    ]
+  },
+  {
+    "name": "owner-load",
+    "title": "Accessibility workload",
+    "sections": [
+      {
+        "title": "Open work by owner",
+        "sql": "select coalesce(nullif(owner,''),'Unassigned') as owner,count(*)::int as findings,count(*) filter(where due_on<current_date)::int as overdue from v_findings where state not in ('resolved','accepted') group by owner order by overdue desc"
       }
     ]
   }
